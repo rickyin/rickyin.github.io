@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+    
+    <entry>
+      <title><![CDATA[Android布局小技巧]]></title>
+      <url>%2F2017%2F02%2F16%2FAndroid%E5%B8%83%E5%B1%80%E5%B0%8F%E6%8A%80%E5%B7%A7%2F</url>
+      <content type="text"><![CDATA[include, merge , viewstub标签1，viewStub其实就是一个宽和高为0的view，通过setVisiblity或者inflate才能加载出来，从而达到延迟加载的效果2，include最常见的问题就是findViewById查找不到目标控件,先find include标签的id，再来找里面的viewId3，merge标签继承Activiy，里面有一个LinerLayout对象,在使用merge标签的时候，可以减少布局的层级 1234567891011121314151617/** * Exercise &lt;merge /&gt; tag in XML files. */ public class Merge extends Activity &#123; private LinearLayout mLayout; @Override protected void onCreate(Bundle icicle) &#123; super.onCreate(icicle); mLayout = new LinearLayout(this); mLayout.setOrientation(LinearLayout.VERTICAL); LayoutInflater.from(this).inflate(R.layout.merge_tag, mLayout); setContentView(mLayout); &#125; public ViewGroup getLayout() &#123; return mLayout; &#125; &#125; 12345678910111213141516&lt;merge xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;&lt;ImageView android:layout_width=&quot;fill_parent&quot; android:layout_height=&quot;fill_parent&quot; android:scaleType=&quot;center&quot; android:src=&quot;@drawable/golden_gate&quot; /&gt;&lt;TextView android:layout_width=&quot;wrap_content&quot; android:layout_height=&quot;wrap_content&quot; android:layout_marginBottom=&quot;20dip&quot; android:layout_gravity=&quot;center_horizontal|bottom&quot; android:padding=&quot;12dip&quot; android:background=&quot;#AA000000&quot; android:textColor=&quot;#ffffffff&quot; android:text=&quot;Golden Gate&quot; /&gt;&lt;/merge&gt;]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[Hello World]]></title>
+      <url>%2F2017%2F02%2F16%2Fhello-world%2F</url>
+      <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+    </entry>
+
+    
+  
+  
+</search>
