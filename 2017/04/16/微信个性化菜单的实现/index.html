@@ -87,10 +87,12 @@
 <meta name="description" content="微信扫描两个不同的二维码，关注的是相同的公众号，不同用户展示不同的菜单
 
 最开始接到这个任务的时候，我还有点懵逼，微信居然还可以实现这个功能啊，虽然在很久以前做过微信公众号的开发，但做的几乎就是手机网页，没怎么关注微信的这些接口，所以没有什么思绪。
-这个时候，就只有去官方文档上面找思路了，结果果真找到了。下面大致说一下我的思路：&amp;gt;
+这个时候，就只有去官方文档上面找思路了，结果果真找到了。下面大致说一下我的思路：
+
 
 通过实现带参数的二维码创建不同的二维码
-创建个性化菜单">
+创建个性化菜单
+对用户">
 <meta property="og:type" content="article">
 <meta property="og:title" content="微信个性化菜单的实现">
 <meta property="og:url" content="https://rickyin.github.io/2017/04/16/微信个性化菜单的实现/index.html">
@@ -98,24 +100,28 @@
 <meta property="og:description" content="微信扫描两个不同的二维码，关注的是相同的公众号，不同用户展示不同的菜单
 
 最开始接到这个任务的时候，我还有点懵逼，微信居然还可以实现这个功能啊，虽然在很久以前做过微信公众号的开发，但做的几乎就是手机网页，没怎么关注微信的这些接口，所以没有什么思绪。
-这个时候，就只有去官方文档上面找思路了，结果果真找到了。下面大致说一下我的思路：&amp;gt;
+这个时候，就只有去官方文档上面找思路了，结果果真找到了。下面大致说一下我的思路：
+
 
 通过实现带参数的二维码创建不同的二维码
-创建个性化菜单">
+创建个性化菜单
+对用户">
 <meta property="og:image" content="http://obd7cp2ww.bkt.clouddn.com/image/blog/doc143.jpeg">
 <meta property="og:image" content="http://obd7cp2ww.bkt.clouddn.com/image/blog/patient142.jpeg">
 <meta property="og:image" content="http://obd7cp2ww.bkt.clouddn.com/image/blog/WechatIMG1.jpeg">
 <meta property="og:image" content="http://obd7cp2ww.bkt.clouddn.com/image/blog/WechatIMG2.jpeg">
-<meta property="og:updated_time" content="2017-04-16T13:59:21.000Z">
+<meta property="og:updated_time" content="2017-04-16T14:06:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信个性化菜单的实现">
 <meta name="twitter:description" content="微信扫描两个不同的二维码，关注的是相同的公众号，不同用户展示不同的菜单
 
 最开始接到这个任务的时候，我还有点懵逼，微信居然还可以实现这个功能啊，虽然在很久以前做过微信公众号的开发，但做的几乎就是手机网页，没怎么关注微信的这些接口，所以没有什么思绪。
-这个时候，就只有去官方文档上面找思路了，结果果真找到了。下面大致说一下我的思路：&amp;gt;
+这个时候，就只有去官方文档上面找思路了，结果果真找到了。下面大致说一下我的思路：
+
 
 通过实现带参数的二维码创建不同的二维码
-创建个性化菜单">
+创建个性化菜单
+对用户">
 <meta name="twitter:image" content="http://obd7cp2ww.bkt.clouddn.com/image/blog/doc143.jpeg">
 
 
@@ -353,12 +359,15 @@
 <p>微信扫描两个不同的二维码，关注的是相同的公众号，不同用户展示不同的菜单</p>
 </blockquote>
 <p>最开始接到这个任务的时候，我还有点懵逼，微信居然还可以实现这个功能啊，虽然在很久以前做过微信公众号的开发，但做的几乎就是手机网页，没怎么关注微信的这些接口，所以没有什么思绪。</p>
-<p>这个时候，就只有去官方文档上面找思路了，结果果真找到了。下面大致说一下我的思路：<br>&gt;</p>
+<p>这个时候，就只有去官方文档上面找思路了，结果果真找到了。下面大致说一下我的思路：</p>
+<blockquote>
 <ol>
 <li>通过实现<code>带参数的二维码</code>创建不同的二维码</li>
 <li>创建<code>个性化菜单</code></li>
 <li>对用户进行分组</li>
 </ol>
+</blockquote>
+<a id="more"></a>
 <p>###1，创建测试账号<br>登陆<code>http://mp.weixin.qq.com/debug/cgi-bin/sandboxinfo?action=showinfo&amp;t=sandbox/index</code><br>微信扫码登录即可，然后配置接口信息，因为只是测试，所以我选择了最简单的新浪sae，这里有个注意点是，只有认证过的sae账户才可以，请大家一定要记住。</p>
 <p>###2，创建带参数的二维码<br>参考此文档<br><code>http://mp.weixin.qq.com/wiki/18/167e7d94df85d8389df6c94a7a8f78ba.html</code><br>创建的二维码分为零时的和永久的，带参数的二维码主要是在post请求的时候传了一个<code>scene_id</code>,通过这个<code>scene_id</code>区分用户扫描的是哪一个二维码，然后通过这个二维码给用户进行分组即可。</p>
 <p><strong>接口调用说明：</strong><br>零时二维码：<br><code>http请求方式: POST
@@ -385,10 +394,10 @@ POST数据例子：{&quot;openid&quot;:&quot;oDF3iYx0ro3_7jD4HFRDfrjdCM58&quot;,
 <blockquote>
 <p>怎么获取 <code>scene_id</code><br>用户在关注公众号的时候，会传过来一个<code>EventKey</code>，这个<code>EventKey</code>如果还没有关注的时候，值是会带一个<code>qrscene_</code>,例如<code>qrscene_123</code>,，而当用户已经关注了，再次扫描的时候直接传来的是<code>123</code>，这个123呢，就是我们所要获得的<code>scene_id</code>,也就是二维码中的参数。</p>
 </blockquote>
-<p>###5，效果实现<br><img src="http://obd7cp2ww.bkt.clouddn.com/image/blog/doc143.jpeg" alt="doctor set up-w140"></p>
-<p><img src="http://obd7cp2ww.bkt.clouddn.com/image/blog/patient142.jpeg" alt="patient set up-w140"></p>
-<p><img src="http://obd7cp2ww.bkt.clouddn.com/image/blog/WechatIMG1.jpeg" alt="医生看到的菜单 set up-w140"></p>
-<p><img src="http://obd7cp2ww.bkt.clouddn.com/image/blog/WechatIMG2.jpeg" alt="病人看到的菜单 set up-w140"></p>
+<p>###5，效果实现<br><img src="http://obd7cp2ww.bkt.clouddn.com/image/blog/doc143.jpeg" alt="doctor set up-w60"></p>
+<p><img src="http://obd7cp2ww.bkt.clouddn.com/image/blog/patient142.jpeg" alt="patient set up-w60"></p>
+<p><img src="http://obd7cp2ww.bkt.clouddn.com/image/blog/WechatIMG1.jpeg" alt="医生看到的菜单 set up-w60"></p>
+<p><img src="http://obd7cp2ww.bkt.clouddn.com/image/blog/WechatIMG2.jpeg" alt="病人看到的菜单 set up-w60"></p>
 
       
     </div>
