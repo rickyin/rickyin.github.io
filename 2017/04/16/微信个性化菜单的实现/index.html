@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="带参数的二维码," />
 
 
 
@@ -110,7 +110,7 @@
 <meta property="og:image" content="http://obd7cp2ww.bkt.clouddn.com/image/blog/patient142.jpeg">
 <meta property="og:image" content="http://obd7cp2ww.bkt.clouddn.com/image/blog/WechatIMG1.jpeg">
 <meta property="og:image" content="http://obd7cp2ww.bkt.clouddn.com/image/blog/WechatIMG2.jpeg">
-<meta property="og:updated_time" content="2017-04-16T14:06:35.000Z">
+<meta property="og:updated_time" content="2017-04-16T14:27:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信个性化菜单的实现">
 <meta name="twitter:description" content="微信扫描两个不同的二维码，关注的是相同的公众号，不同用户展示不同的菜单
@@ -326,6 +326,25 @@
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/微信公众号/" itemprop="url" rel="index">
+                    <span itemprop="name">微信公众号</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
@@ -368,32 +387,22 @@
 </ol>
 </blockquote>
 <a id="more"></a>
-<p>###1，创建测试账号<br>登陆<code>http://mp.weixin.qq.com/debug/cgi-bin/sandboxinfo?action=showinfo&amp;t=sandbox/index</code><br>微信扫码登录即可，然后配置接口信息，因为只是测试，所以我选择了最简单的新浪sae，这里有个注意点是，只有认证过的sae账户才可以，请大家一定要记住。</p>
-<p>###2，创建带参数的二维码<br>参考此文档<br><code>http://mp.weixin.qq.com/wiki/18/167e7d94df85d8389df6c94a7a8f78ba.html</code><br>创建的二维码分为零时的和永久的，带参数的二维码主要是在post请求的时候传了一个<code>scene_id</code>,通过这个<code>scene_id</code>区分用户扫描的是哪一个二维码，然后通过这个二维码给用户进行分组即可。</p>
-<p><strong>接口调用说明：</strong><br>零时二维码：<br><code>http请求方式: POST
-URL: https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token=TOKEN
-POST数据格式：json
-POST数据例子：{&quot;expire_seconds&quot;: 604800, &quot;action_name&quot;: &quot;QR_SCENE&quot;, &quot;action_info&quot;: {&quot;scene&quot;: {&quot;scene_id&quot;: 123}}}</code></p>
-<p>永久二维码：<br><code>http请求方式: POST
-URL: https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token=TOKEN
-POST数据格式：json
-POST数据例子：{&quot;action_name&quot;: &quot;QR_LIMIT_SCENE&quot;, &quot;action_info&quot;: {&quot;scene&quot;: {&quot;scene_id&quot;: 123}}}
-或者也可以使用以下POST数据创建字符串形式的二维码参数：
-{&quot;action_name&quot;: &quot;QR_LIMIT_STR_SCENE&quot;, &quot;action_info&quot;: {&quot;scene&quot;: {&quot;scene_str&quot;: &quot;123&quot;}}}</code></p>
-<p>###3，创建个性化菜单<br>参考此文档<code>http://mp.weixin.qq.com/wiki/0/c48ccd12b69ae023159b4bfaa7c39c20.html</code><br> 个性化菜单和正常的菜单主要区别就是多了一个匹配规则<code>matchrule</code>，<br> 例如<br> <figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"> &#123;</div><div class="line"> 	<span class="attr">"button"</span>:[</div><div class="line"> 	&#123;	</div><div class="line">    	<span class="attr">"type"</span>:<span class="string">"click"</span>,</div><div class="line">    	<span class="attr">"name"</span>:<span class="string">"今日歌曲"</span>,</div><div class="line">     	<span class="attr">"key"</span>:<span class="string">"V1001_TODAY_MUSIC"</span> </div><div class="line">	&#125;,</div><div class="line">	&#123; </div><div class="line">		<span class="attr">"name"</span>:<span class="string">"菜单"</span>,</div><div class="line">		<span class="attr">"sub_button"</span>:[</div><div class="line">		&#123;	</div><div class="line">			<span class="attr">"type"</span>:<span class="string">"view"</span>,</div><div class="line">			<span class="attr">"name"</span>:<span class="string">"搜索"</span>,</div><div class="line">			<span class="attr">"url"</span>:<span class="string">"http://www.soso.com/"</span></div><div class="line">		&#125;,</div><div class="line">		&#123;</div><div class="line">			<span class="attr">"type"</span>:<span class="string">"view"</span>,</div><div class="line">			<span class="attr">"name"</span>:<span class="string">"视频"</span>,</div><div class="line">			<span class="attr">"url"</span>:<span class="string">"http://v.qq.com/"</span></div><div class="line">		&#125;,</div><div class="line">		&#123;</div><div class="line">			<span class="attr">"type"</span>:<span class="string">"click"</span>,</div><div class="line">			<span class="attr">"name"</span>:<span class="string">"赞一下我们"</span>,</div><div class="line">			<span class="attr">"key"</span>:<span class="string">"V1001_GOOD"</span></div><div class="line">		&#125;]</div><div class="line"> &#125;],</div><div class="line"><span class="attr">"matchrule"</span>:&#123;</div><div class="line">  <span class="attr">"group_id"</span>:<span class="string">"2"</span>,</div><div class="line">  <span class="attr">"sex"</span>:<span class="string">"1"</span>,</div><div class="line">  <span class="attr">"country"</span>:<span class="string">"中国"</span>,</div><div class="line">  <span class="attr">"province"</span>:<span class="string">"广东"</span>,</div><div class="line">  <span class="attr">"city"</span>:<span class="string">"广州"</span>,</div><div class="line">  <span class="attr">"client_platform_type"</span>:<span class="string">"2"</span></div><div class="line">  <span class="string">"language"</span>:<span class="string">"zh_CN"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="1，创建测试账号"><a href="#1，创建测试账号" class="headerlink" title="1，创建测试账号"></a>1，创建测试账号</h3><p>登陆<code>http://mp.weixin.qq.com/debug/cgi-bin/sandboxinfo?action=showinfo&amp;t=sandbox/index</code><br>微信扫码登录即可，然后配置接口信息，因为只是测试，所以我选择了最简单的新浪sae，这里有个注意点是，只有认证过的sae账户才可以，请大家一定要记住。</p>
+<h3 id="2，创建带参数的二维码"><a href="#2，创建带参数的二维码" class="headerlink" title="2，创建带参数的二维码"></a>2，创建带参数的二维码</h3><p>参考此文档<br><code>http://mp.weixin.qq.com/wiki/18/167e7d94df85d8389df6c94a7a8f78ba.html</code><br>创建的二维码分为零时的和永久的，带参数的二维码主要是在post请求的时候传了一个<code>scene_id</code>,通过这个<code>scene_id</code>区分用户扫描的是哪一个二维码，然后通过这个二维码给用户进行分组即可。</p>
+<p><strong>接口调用说明：</strong><br>零时二维码：<br><figure class="highlight plain"><figcaption><span>POST</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">URL: https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token=TOKEN</div><div class="line">POST数据格式：json</div><div class="line">POST数据例子：&#123;&quot;expire_seconds&quot;: 604800, &quot;action_name&quot;: &quot;QR_SCENE&quot;, &quot;action_info&quot;: &#123;&quot;scene&quot;: &#123;&quot;scene_id&quot;: 123&#125;&#125;&#125;</div></pre></td></tr></table></figure></p>
+<p>永久二维码：<br><figure class="highlight plain"><figcaption><span>POST</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">URL: https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token=TOKEN</div><div class="line">POST数据格式：json</div><div class="line">POST数据例子：&#123;&quot;action_name&quot;: &quot;QR_LIMIT_SCENE&quot;, &quot;action_info&quot;: &#123;&quot;scene&quot;: &#123;&quot;scene_id&quot;: 123&#125;&#125;&#125;</div><div class="line">或者也可以使用以下POST数据创建字符串形式的二维码参数：</div><div class="line">&#123;&quot;action_name&quot;: &quot;QR_LIMIT_STR_SCENE&quot;, &quot;action_info&quot;: &#123;&quot;scene&quot;: &#123;&quot;scene_str&quot;: &quot;123&quot;&#125;&#125;&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="3，创建个性化菜单"><a href="#3，创建个性化菜单" class="headerlink" title="3，创建个性化菜单"></a>3，创建个性化菜单</h3><p>参考此文档<code>http://mp.weixin.qq.com/wiki/0/c48ccd12b69ae023159b4bfaa7c39c20.html</code><br> 个性化菜单和正常的菜单主要区别就是多了一个匹配规则<code>matchrule</code>，<br> 例如<br> <figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"> &#123;</div><div class="line"> 	<span class="attr">"button"</span>:[</div><div class="line"> 	&#123;	</div><div class="line">    	<span class="attr">"type"</span>:<span class="string">"click"</span>,</div><div class="line">    	<span class="attr">"name"</span>:<span class="string">"今日歌曲"</span>,</div><div class="line">     	<span class="attr">"key"</span>:<span class="string">"V1001_TODAY_MUSIC"</span> </div><div class="line">	&#125;,</div><div class="line">	&#123; </div><div class="line">		<span class="attr">"name"</span>:<span class="string">"菜单"</span>,</div><div class="line">		<span class="attr">"sub_button"</span>:[</div><div class="line">		&#123;	</div><div class="line">			<span class="attr">"type"</span>:<span class="string">"view"</span>,</div><div class="line">			<span class="attr">"name"</span>:<span class="string">"搜索"</span>,</div><div class="line">			<span class="attr">"url"</span>:<span class="string">"http://www.soso.com/"</span></div><div class="line">		&#125;,</div><div class="line">		&#123;</div><div class="line">			<span class="attr">"type"</span>:<span class="string">"view"</span>,</div><div class="line">			<span class="attr">"name"</span>:<span class="string">"视频"</span>,</div><div class="line">			<span class="attr">"url"</span>:<span class="string">"http://v.qq.com/"</span></div><div class="line">		&#125;,</div><div class="line">		&#123;</div><div class="line">			<span class="attr">"type"</span>:<span class="string">"click"</span>,</div><div class="line">			<span class="attr">"name"</span>:<span class="string">"赞一下我们"</span>,</div><div class="line">			<span class="attr">"key"</span>:<span class="string">"V1001_GOOD"</span></div><div class="line">		&#125;]</div><div class="line"> &#125;],</div><div class="line"><span class="attr">"matchrule"</span>:&#123;</div><div class="line">  <span class="attr">"group_id"</span>:<span class="string">"2"</span>,</div><div class="line">  <span class="attr">"sex"</span>:<span class="string">"1"</span>,</div><div class="line">  <span class="attr">"country"</span>:<span class="string">"中国"</span>,</div><div class="line">  <span class="attr">"province"</span>:<span class="string">"广东"</span>,</div><div class="line">  <span class="attr">"city"</span>:<span class="string">"广州"</span>,</div><div class="line">  <span class="attr">"client_platform_type"</span>:<span class="string">"2"</span></div><div class="line">  <span class="string">"language"</span>:<span class="string">"zh_CN"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>在上面的json数据中，<code>matchrule</code>中的<code>group_id</code>你就可以用上面创建带参数的二维码中的<code>scene_id</code>来区分，其他的参数如果没有特殊要求不填即可。</p>
 <blockquote>
 <p>注意：创建个性化菜单的时候必须要有一个默认菜单，在删除默认菜单后，个性化菜单也会被删除</p>
 </blockquote>
-<p>###3，对用户进行分组<br>参考此文档<code>http://mp.weixin.qq.com/wiki/8/d6d33cf60bce2a2e4fb10a21be9591b8.html</code></p>
-<p>接口调用请求说明<br><code>http请求方式: POST（请使用https协议）
-https://api.weixin.qq.com/cgi-bin/groups/members/update?access_token=ACCESS_TOKEN
-POST数据格式：json
-POST数据例子：{&quot;openid&quot;:&quot;oDF3iYx0ro3_7jD4HFRDfrjdCM58&quot;,&quot;to_groupid&quot;:108}</code></p>
-<p>###4,代码实现<br>我自己认为，像个性化菜单和自定义带参数的二维码没有必要代码生成，直接调用在线测试接口即可，所以，主要来讲一下用户分组的大致实现</p>
+<h3 id="4，对用户进行分组"><a href="#4，对用户进行分组" class="headerlink" title="4，对用户进行分组"></a>4，对用户进行分组</h3><p>参考此文档<code>http://mp.weixin.qq.com/wiki/8/d6d33cf60bce2a2e4fb10a21be9591b8.html</code></p>
+<p>接口调用请求说明<br><figure class="highlight plain"><figcaption><span>POST（请使用https协议）</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">https://api.weixin.qq.com/cgi-bin/groups/members/update?access_token=ACCESS_TOKEN</div><div class="line">POST数据格式：json</div><div class="line">POST数据例子：&#123;&quot;openid&quot;:&quot;oDF3iYx0ro3_7jD4HFRDfrjdCM58&quot;,&quot;to_groupid&quot;:108&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="5-代码实现"><a href="#5-代码实现" class="headerlink" title="5,代码实现"></a>5,代码实现</h3><p>我自己认为，像个性化菜单和自定义带参数的二维码没有必要代码生成，直接调用在线测试接口即可，所以，主要来讲一下用户分组的大致实现</p>
 <blockquote>
 <p>怎么获取 <code>scene_id</code><br>用户在关注公众号的时候，会传过来一个<code>EventKey</code>，这个<code>EventKey</code>如果还没有关注的时候，值是会带一个<code>qrscene_</code>,例如<code>qrscene_123</code>,，而当用户已经关注了，再次扫描的时候直接传来的是<code>123</code>，这个123呢，就是我们所要获得的<code>scene_id</code>,也就是二维码中的参数。</p>
 </blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">receiveEvent</span><span class="params">($object)</span></span></div><div class="line">   &#123;</div><div class="line">       $content = <span class="string">""</span>;</div><div class="line">       <span class="keyword">switch</span> ($object-&gt;Event) &#123;</div><div class="line">           <span class="keyword">case</span> <span class="string">"subscribe"</span>:</div><div class="line">               $EventKey = $object-&gt;EventKey;</div><div class="line">               <span class="keyword">if</span> ($EventKey == <span class="string">'qrscene_123'</span>) &#123;</div><div class="line">                   $groupid =<span class="string">'100'</span>;</div><div class="line">               &#125;<span class="keyword">else</span>  <span class="keyword">if</span> ($EventKey == <span class="string">'qrscene_143'</span>) &#123;</div><div class="line">                   $groupid = <span class="string">'101'</span>;</div><div class="line">               &#125;</div><div class="line">               $fromUsername = $object-&gt;FromUserName;</div><div class="line">               $access_token =  <span class="keyword">$this</span>-&gt;getAccessToken(<span class="string">'wx71bfa1fd5335859c'</span>,<span class="string">'bb995c31450ee6acd89062a5b5a09b89'</span>);</div><div class="line">               $url = <span class="string">"https://api.weixin.qq.com/cgi-bin/groups/members/update?access_token=&#123;$access_token&#125;"</span>;</div><div class="line">               $post =<span class="string">'&#123;"openid":"'</span>.$fromUsername.<span class="string">'","to_groupid":'</span>.$groupid.<span class="string">'&#125;'</span>;</div><div class="line">               <span class="keyword">$this</span>-&gt;_request($url,<span class="keyword">true</span>,<span class="string">'POST'</span>,$post);</div><div class="line"></div><div class="line">               $gid = <span class="string">''</span>;</div><div class="line">               <span class="keyword">if</span>($groupid == <span class="string">'101'</span>)&#123;</div><div class="line">                   $gid = <span class="string">'doctor'</span>;</div><div class="line">               &#125;<span class="keyword">else</span> <span class="keyword">if</span>($groupid == <span class="string">'100'</span>)&#123;</div><div class="line">                   $gid = <span class="string">'patient'</span>;</div><div class="line">               &#125;</div><div class="line">               $content = <span class="string">"welcome &#123;$gid&#125;"</span>;</div><div class="line">               <span class="keyword">break</span>;</div><div class="line">           <span class="keyword">case</span> <span class="string">"unsubscribe"</span>:</div><div class="line">               $content = <span class="string">"取消关注"</span>;</div><div class="line">               <span class="keyword">break</span>;</div><div class="line">           <span class="keyword">case</span> <span class="string">"CLICK"</span>:</div><div class="line">               $content = <span class="keyword">$this</span>-&gt;receiveClick($object); </div><div class="line">               <span class="keyword">break</span>;          </div><div class="line">       &#125;</div><div class="line">       <span class="keyword">if</span> (is_array($content)) &#123;</div><div class="line">           $result = <span class="keyword">$this</span>-&gt;transmitNews($object, $content);</div><div class="line">       &#125; <span class="keyword">else</span> &#123;</div><div class="line">           $result = <span class="keyword">$this</span>-&gt;transmitText($object, $content);</div><div class="line">       &#125;</div><div class="line">       <span class="keyword">return</span> $result;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
 <p>###5，效果实现<br><img src="http://obd7cp2ww.bkt.clouddn.com/image/blog/doc143.jpeg" alt="doctor set up-w60"></p>
 <p><img src="http://obd7cp2ww.bkt.clouddn.com/image/blog/patient142.jpeg" alt="patient set up-w60"></p>
 <p><img src="http://obd7cp2ww.bkt.clouddn.com/image/blog/WechatIMG1.jpeg" alt="医生看到的菜单 set up-w60"></p>
@@ -417,6 +426,12 @@ POST数据例子：{&quot;openid&quot;:&quot;oDF3iYx0ro3_7jD4HFRDfrjdCM58&quot;,
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/带参数的二维码/" rel="tag">#带参数的二维码</a>
+          
+        </div>
       
 
       
@@ -528,7 +543,7 @@ POST数据例子：{&quot;openid&quot;:&quot;oDF3iYx0ro3_7jD4HFRDfrjdCM58&quot;,
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -537,7 +552,7 @@ POST数据例子：{&quot;openid&quot;:&quot;oDF3iYx0ro3_7jD4HFRDfrjdCM58&quot;,
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -577,7 +592,7 @@ POST数据例子：{&quot;openid&quot;:&quot;oDF3iYx0ro3_7jD4HFRDfrjdCM58&quot;,
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1，创建测试账号"><span class="nav-number">1.</span> <span class="nav-text">1，创建测试账号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2，创建带参数的二维码"><span class="nav-number">2.</span> <span class="nav-text">2，创建带参数的二维码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3，创建个性化菜单"><span class="nav-number">3.</span> <span class="nav-text">3，创建个性化菜单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4，对用户进行分组"><span class="nav-number">4.</span> <span class="nav-text">4，对用户进行分组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-代码实现"><span class="nav-number">5.</span> <span class="nav-text">5,代码实现</span></a></li></ol></div>
             
           </div>
         </section>
