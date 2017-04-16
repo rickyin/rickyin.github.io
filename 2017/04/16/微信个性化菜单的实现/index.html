@@ -84,15 +84,39 @@
 
 
 
-<meta name="description" content="Android app developer">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Rick's blog">
-<meta property="og:url" content="https://rickyin.github.io/index.html">
+<meta name="description" content="微信扫描两个不同的二维码，关注的是相同的公众号，不同用户展示不同的菜单
+
+最开始接到这个任务的时候，我还有点懵逼，微信居然还可以实现这个功能啊，虽然在很久以前做过微信公众号的开发，但做的几乎就是手机网页，没怎么关注微信的这些接口，所以没有什么思绪。
+这个时候，就只有去官方文档上面找思路了，结果果真找到了。下面大致说一下我的思路：&amp;gt;
+
+通过实现带参数的二维码创建不同的二维码
+创建个性化菜单">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信个性化菜单的实现">
+<meta property="og:url" content="https://rickyin.github.io/2017/04/16/微信个性化菜单的实现/index.html">
 <meta property="og:site_name" content="Rick's blog">
-<meta property="og:description" content="Android app developer">
+<meta property="og:description" content="微信扫描两个不同的二维码，关注的是相同的公众号，不同用户展示不同的菜单
+
+最开始接到这个任务的时候，我还有点懵逼，微信居然还可以实现这个功能啊，虽然在很久以前做过微信公众号的开发，但做的几乎就是手机网页，没怎么关注微信的这些接口，所以没有什么思绪。
+这个时候，就只有去官方文档上面找思路了，结果果真找到了。下面大致说一下我的思路：&amp;gt;
+
+通过实现带参数的二维码创建不同的二维码
+创建个性化菜单">
+<meta property="og:image" content="http://obd7cp2ww.bkt.clouddn.com/image/blog/doc143.jpeg">
+<meta property="og:image" content="http://obd7cp2ww.bkt.clouddn.com/image/blog/patient142.jpeg">
+<meta property="og:image" content="http://obd7cp2ww.bkt.clouddn.com/image/blog/WechatIMG1.jpeg">
+<meta property="og:image" content="http://obd7cp2ww.bkt.clouddn.com/image/blog/WechatIMG2.jpeg">
+<meta property="og:updated_time" content="2017-04-16T13:59:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Rick's blog">
-<meta name="twitter:description" content="Android app developer">
+<meta name="twitter:title" content="微信个性化菜单的实现">
+<meta name="twitter:description" content="微信扫描两个不同的二维码，关注的是相同的公众号，不同用户展示不同的菜单
+
+最开始接到这个任务的时候，我还有点懵逼，微信居然还可以实现这个功能啊，虽然在很久以前做过微信公众号的开发，但做的几乎就是手机网页，没怎么关注微信的这些接口，所以没有什么思绪。
+这个时候，就只有去官方文档上面找思路了，结果果真找到了。下面大致说一下我的思路：&amp;gt;
+
+通过实现带参数的二维码创建不同的二维码
+创建个性化菜单">
+<meta name="twitter:image" content="http://obd7cp2ww.bkt.clouddn.com/image/blog/doc143.jpeg">
 
 
 
@@ -113,9 +137,9 @@
 
 
 
-  <link rel="canonical" href="https://rickyin.github.io/"/>
+  <link rel="canonical" href="https://rickyin.github.io/2017/04/16/微信个性化菜单的实现/"/>
 
-  <title> Rick's blog </title>
+  <title> 微信个性化菜单的实现 | Rick's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -136,9 +160,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -258,9 +280,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -280,10 +302,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2017/04/16/微信个性化菜单的实现/" itemprop="url">
-                  微信个性化菜单的实现
-                </a>
+                微信个性化菜单的实现
               
             
           </h1>
@@ -330,9 +349,7 @@
       
 
       
-        
-          
-            <blockquote>
+        <blockquote>
 <p>微信扫描两个不同的二维码，关注的是相同的公众号，不同用户展示不同的菜单</p>
 </blockquote>
 <p>最开始接到这个任务的时候，我还有点懵逼，微信居然还可以实现这个功能啊，虽然在很久以前做过微信公众号的开发，但做的几乎就是手机网页，没怎么关注微信的这些接口，所以没有什么思绪。</p>
@@ -373,16 +390,20 @@ POST数据例子：{&quot;openid&quot;:&quot;oDF3iYx0ro3_7jD4HFRDfrjdCM58&quot;,
 <p><img src="http://obd7cp2ww.bkt.clouddn.com/image/blog/WechatIMG1.jpeg" alt="医生看到的菜单 set up-w140"></p>
 <p><img src="http://obd7cp2ww.bkt.clouddn.com/image/blog/WechatIMG2.jpeg" alt="病人看到的菜单 set up-w140"></p>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
@@ -390,250 +411,51 @@ POST数据例子：{&quot;openid&quot;:&quot;oDF3iYx0ro3_7jD4HFRDfrjdCM58&quot;,
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/02/16/Android布局小技巧/" rel="next" title="Android布局优化技巧">
+                <i class="fa fa-chevron-left"></i> Android布局优化技巧
+              </a>
             
-              
-                
-                <a class="post-title-link" href="/2017/02/16/Android布局小技巧/" itemprop="url">
-                  Android布局优化技巧
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-16T22:13:19+08:00" content="2017-02-16">
-              2017-02-16
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/android/" itemprop="url" rel="index">
-                    <span itemprop="name">android</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/02/16/Android布局小技巧/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/16/Android布局小技巧/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="include-merge-viewstub标签"><a href="#include-merge-viewstub标签" class="headerlink" title="include, merge , viewstub标签"></a>include, merge , viewstub标签</h3><h4 id="1，viewStub其实就是一个宽和高为0的view，通过setVisiblity或者inflate才能加载出来，从而达到延迟加载的效果"><a href="#1，viewStub其实就是一个宽和高为0的view，通过setVisiblity或者inflate才能加载出来，从而达到延迟加载的效果" class="headerlink" title="1，viewStub其实就是一个宽和高为0的view，通过setVisiblity或者inflate才能加载出来，从而达到延迟加载的效果"></a>1，viewStub其实就是一个宽和高为0的view，通过setVisiblity或者inflate才能加载出来，从而达到延迟加载的效果</h4><h4 id="2，include最常见的问题就是findViewById查找不到目标控件-先find-include标签的id，再来找里面的viewId"><a href="#2，include最常见的问题就是findViewById查找不到目标控件-先find-include标签的id，再来找里面的viewId" class="headerlink" title="2，include最常见的问题就是findViewById查找不到目标控件,先find include标签的id，再来找里面的viewId"></a>2，include最常见的问题就是findViewById查找不到目标控件,先find include标签的id，再来找里面的viewId</h4><h4 id="3，merge标签继承Activiy，里面有一个LinerLayout对象-在使用merge标签的时候，可以减少布局的层级"><a href="#3，merge标签继承Activiy，里面有一个LinerLayout对象-在使用merge标签的时候，可以减少布局的层级" class="headerlink" title="3，merge标签继承Activiy，里面有一个LinerLayout对象,在使用merge标签的时候，可以减少布局的层级"></a>3，merge标签继承Activiy，里面有一个LinerLayout对象,在使用merge标签的时候，可以减少布局的层级</h4>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/02/16/Android布局小技巧/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
           </div>
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+          <div class="post-nav-prev post-nav-item">
             
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/16/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-16T21:01:09+08:00" content="2017-02-16">
-              2017-02-16
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/02/16/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/16/hello-world/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/04/16/微信个性化菜单的实现/"
+     data-title="微信个性化菜单的实现"
+     data-content=""
+     data-url="https://rickyin.github.io/2017/04/16/微信个性化菜单的实现/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
 
 
           </div>
@@ -641,6 +463,14 @@ POST数据例子：{&quot;openid&quot;:&quot;oDF3iYx0ro3_7jD4HFRDfrjdCM58&quot;,
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/04/16/微信个性化菜单的实现/"
+           data-title="微信个性化菜单的实现" data-url="https://rickyin.github.io/2017/04/16/微信个性化菜单的实现/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -660,8 +490,17 @@ POST数据例子：{&quot;openid&quot;:&quot;oDF3iYx0ro3_7jD4HFRDfrjdCM58&quot;,
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/logo.png"
@@ -722,6 +561,17 @@ POST数据例子：{&quot;openid&quot;:&quot;oDF3iYx0ro3_7jD4HFRDfrjdCM58&quot;,
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -825,6 +675,10 @@ POST数据例子：{&quot;openid&quot;:&quot;oDF3iYx0ro3_7jD4HFRDfrjdCM58&quot;,
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
