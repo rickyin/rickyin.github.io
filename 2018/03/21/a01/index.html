@@ -100,7 +100,7 @@ ACTION_MOVE
 ACTION_UP
 
 在一次屏幕触摸操作中，ACTION_DOWN 和 ACTION_UP 这两个事件是必须的，而ACTION_MOVE视情况而定。">
-<meta property="og:updated_time" content="2018-03-21T14:13:20.884Z">
+<meta property="og:updated_time" content="2018-03-21T15:10:37.282Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="（一）Android触摸事件传递机制">
 <meta name="twitter:description" content="1.1 触摸事件的类型
@@ -368,8 +368,9 @@ ACTION_UP
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">public boolean onInterceptTouchEvent(MotionEvent ev)</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>   返回<code>ture</code>表示拦截这个事件，不继续分发给子视图，同时交由自身的<code>onTouchEvent</code>方法进行消费；<br>   返回<code>false</code>或者<code>super.onInterceptTouchEvent</code>表示不对事件进行拦截，继续传递给子视图。</p>
-<ul>
+<pre><code>返回`ture`表示拦截这个事件，不继续分发给子视图，同时交由自身的`onTouchEvent`方法进行消费；
+返回`false`或者`super.onInterceptTouchEvent`表示不对事件进行拦截，继续传递给子视图。
+</code></pre><ul>
 <li><p><strong>消费（consumer）</strong><br>  事件的消费对应着<code>onTouchEvent</code>方法</p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">public boolean onTouchEvent(MotionEvent ev)</div></pre></td></tr></table></figure>
 <p>  该方法返回值为<code>true</code>表示当前视图处理对应的事件，事件将不会向上传递给父视图；<br>返回值为<code>false</code>表示当前视图不处理这个事件，事件会传递给父视图的<code>onTouchEvent</code>方法进行处理。</p>
