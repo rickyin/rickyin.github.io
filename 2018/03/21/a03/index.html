@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="react native," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -84,22 +84,33 @@
 
 
 
-<meta name="description" content="在学习React Native的时候，自己难免会遇到各种各样的问题，所以本文旨在记录一些自己在学习中遇到的心得。
+<meta name="description" content="策略模式属于对象的行为模式。其用意是针对一组算法，将每一个算法封装到具有共同接口的独立的类中，从而使得它们可以相互替换。策略模式使得算法可以在不影响到客户端的情况下发生变化。
+策略模式涉及到三个角色：
 
-第一个坑。。。。">
+环境（context）角色：持有一个strategy的引用
+抽象策略（Strategy）角色：这是一个抽象角色，通常由一个接口或抽象类实现。此角色给出所有的具体策略类所需的接口
+具体策略(Conc">
 <meta property="og:type" content="article">
-<meta property="og:title" content="React Native学习心得（一）">
-<meta property="og:url" content="https://rickyin.github.io/2017/06/29/rn001/index.html">
+<meta property="og:title" content="策略模式">
+<meta property="og:url" content="https://rickyin.github.io/2018/03/21/a03/index.html">
 <meta property="og:site_name" content="Rick's blog">
-<meta property="og:description" content="在学习React Native的时候，自己难免会遇到各种各样的问题，所以本文旨在记录一些自己在学习中遇到的心得。
+<meta property="og:description" content="策略模式属于对象的行为模式。其用意是针对一组算法，将每一个算法封装到具有共同接口的独立的类中，从而使得它们可以相互替换。策略模式使得算法可以在不影响到客户端的情况下发生变化。
+策略模式涉及到三个角色：
 
-第一个坑。。。。">
-<meta property="og:updated_time" content="2017-07-23T14:27:15.000Z">
+环境（context）角色：持有一个strategy的引用
+抽象策略（Strategy）角色：这是一个抽象角色，通常由一个接口或抽象类实现。此角色给出所有的具体策略类所需的接口
+具体策略(Conc">
+<meta property="og:image" content="https://github.com/rickyin/AndroidNotes/raw/master/Android%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/media/15214409429298/6.png">
+<meta property="og:updated_time" content="2018-03-21T14:57:12.930Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="React Native学习心得（一）">
-<meta name="twitter:description" content="在学习React Native的时候，自己难免会遇到各种各样的问题，所以本文旨在记录一些自己在学习中遇到的心得。
+<meta name="twitter:title" content="策略模式">
+<meta name="twitter:description" content="策略模式属于对象的行为模式。其用意是针对一组算法，将每一个算法封装到具有共同接口的独立的类中，从而使得它们可以相互替换。策略模式使得算法可以在不影响到客户端的情况下发生变化。
+策略模式涉及到三个角色：
 
-第一个坑。。。。">
+环境（context）角色：持有一个strategy的引用
+抽象策略（Strategy）角色：这是一个抽象角色，通常由一个接口或抽象类实现。此角色给出所有的具体策略类所需的接口
+具体策略(Conc">
+<meta name="twitter:image" content="https://github.com/rickyin/AndroidNotes/raw/master/Android%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/media/15214409429298/6.png">
 
 
 
@@ -120,9 +131,9 @@
 
 
 
-  <link rel="canonical" href="https://rickyin.github.io/2017/06/29/rn001/"/>
+  <link rel="canonical" href="https://rickyin.github.io/2018/03/21/a03/"/>
 
-  <title> React Native学习心得（一） | Rick's blog </title>
+  <title> 策略模式 | Rick's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -285,7 +296,7 @@
             
             
               
-                React Native学习心得（一）
+                策略模式
               
             
           </h1>
@@ -297,8 +308,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-06-29T22:11:22+08:00" content="2017-06-29">
-              2017-06-29
+            <time itemprop="dateCreated" datetime="2018-03-21T22:34:29+08:00" content="2018-03-21">
+              2018-03-21
             </time>
           </span>
 
@@ -311,8 +322,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/react-native/" itemprop="url" rel="index">
-                    <span itemprop="name">react native</span>
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
                   </a>
                 </span>
 
@@ -344,10 +355,16 @@
       
 
       
-        <blockquote>
-<p>在学习React Native的时候，自己难免会遇到各种各样的问题，所以本文旨在记录一些自己在学习中遇到的心得。</p>
-</blockquote>
-<p>第一个坑。。。。</p>
+        <p>策略模式属于对象的行为模式。其用意是针对一组算法，将每一个算法封装到具有共同接口的独立的类中，从而使得它们可以相互替换。策略模式使得算法可以在不影响到客户端的情况下发生变化。</p>
+<p>策略模式涉及到三个角色：</p>
+<ul>
+<li>环境（context）角色：持有一个strategy的引用</li>
+<li>抽象策略（Strategy）角色：这是一个抽象角色，通常由一个接口或抽象类实现。此角色给出所有的具体策略类所需的接口</li>
+<li>具体策略(ConcreteStrategy)角色：包装了相关的算法或行为<a id="more"></a>
+</li>
+</ul>
+<p>题目举例：<br><img src="https://github.com/rickyin/AndroidNotes/raw/master/Android%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/media/15214409429298/6.png" alt="6"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ChargeStrategy</span> </span>&#123;</div><div class="line">    <span class="comment">//策略方法</span></div><div class="line">    <span class="function"><span class="keyword">double</span> <span class="title">costFee</span><span class="params">(<span class="keyword">float</span> displacement, <span class="keyword">int</span> person, <span class="keyword">int</span> mileage)</span></span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LocalBus</span> <span class="keyword">implements</span> <span class="title">ChargeStrategy</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">costFee</span><span class="params">(<span class="keyword">float</span> displacement, <span class="keyword">int</span> person, <span class="keyword">int</span> mileage)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> cost;</div><div class="line">        <span class="keyword">if</span> (displacement &lt;= <span class="number">1</span>) &#123;</div><div class="line">            cost = <span class="number">0</span>;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            cost = <span class="number">10</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (person &gt;= <span class="number">6</span>) &#123;</div><div class="line">            cost += <span class="number">10</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (mileage &gt; <span class="number">100</span>) &#123;</div><div class="line">            cost += (mileage - <span class="number">200</span>) / <span class="number">100</span> * <span class="number">20</span>;</div><div class="line">        &#125;</div><div class="line">        System.out.println(<span class="string">"本地车辆---&gt;"</span> + cost);</div><div class="line">        <span class="keyword">return</span> cost;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OtherBus</span> <span class="keyword">implements</span> <span class="title">ChargeStrategy</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">costFee</span><span class="params">(<span class="keyword">float</span> displacement, <span class="keyword">int</span> person, <span class="keyword">int</span> mileage)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> cost;</div><div class="line">        <span class="keyword">if</span> (displacement &lt;= <span class="number">1</span> &amp;&amp; displacement &gt; <span class="number">0</span>) &#123;</div><div class="line">            cost = <span class="number">10</span>;</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (displacement &lt;= <span class="number">2</span>) &#123;</div><div class="line">            cost = <span class="number">20</span>;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            cost = <span class="number">30</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (person &gt;= <span class="number">6</span>) &#123;</div><div class="line">            cost += <span class="number">20</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (mileage &gt; <span class="number">100</span>) &#123;</div><div class="line">            cost += (mileage - <span class="number">100</span>) / <span class="number">100</span> * <span class="number">20</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        System.out.println(<span class="string">"外地车辆---&gt;"</span> + cost);</div><div class="line">        <span class="keyword">return</span> cost;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Fee</span> </span>&#123;</div><div class="line">    <span class="comment">//持有一个具体策略的对象</span></div><div class="line">    ChargeStrategy strategy;</div><div class="line"></div><div class="line">    <span class="comment">//构造函数，传入一个具体策略对象</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Fee</span><span class="params">(ChargeStrategy strategy)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.strategy = strategy;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//策略方法，计算收费</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">charge</span><span class="params">(<span class="keyword">float</span> displacement, <span class="keyword">int</span> person, <span class="keyword">int</span> mileage)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.strategy.costFee(displacement, person, mileage);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Fee fee = <span class="keyword">new</span> Fee(<span class="keyword">new</span> LocalBus());</div><div class="line">        fee.charge(<span class="number">2.7f</span>, <span class="number">6</span>, <span class="number">310</span>);</div><div class="line"></div><div class="line">        Fee fee1 = <span class="keyword">new</span> Fee(<span class="keyword">new</span> OtherBus());</div><div class="line">        fee1.charge(<span class="number">2.7f</span>, <span class="number">6</span>, <span class="number">310</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -368,28 +385,18 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/react-native/" rel="tag">#react native</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/16/微信个性化菜单的实现/" rel="next" title="微信公众号个性化菜单的实现">
-                <i class="fa fa-chevron-left"></i> 微信公众号个性化菜单的实现
+              <a href="/2018/03/21/a02/" rel="next" title="（二）Android View的绘制流程">
+                <i class="fa fa-chevron-left"></i> （二）Android View的绘制流程
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/23/rn002/" rel="prev" title="React Native学习心得（二）">
-                React Native学习心得（二） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
