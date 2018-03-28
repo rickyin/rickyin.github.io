@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[面试相关（一）]]></title>
+      <url>%2F2018%2F03%2F28%2F3%2F</url>
+      <content type="text"><![CDATA[String,StringBuffer and StringBuilder 1.是否可变 String不可变，StringBuffer和StringBuilder可变。 2.是否线程安全 String不可变，因此是线程安全的。StringBuilder不是线程安全的；StringBuffer是线程安全的，使用synchronized来同步 String不可变的原因 可以缓存hash值 因为String的hash值经常被用到，例如String用作HashMap等。不可变的特性可以使得hash值也不可变，因此只需要一次计算 String Pool的需要 如果String已经被创建过了，那么就会从String Pool中取得引用。只有String是不可变的，才可能使用String Pool。 安全性 String经常作为参数，String的不可变性保证了参数不可变。例如在作为网络连接参数的情况下，如果String是可变的，那么在网络连接过程中，String被改变，改变String对象的那一方以为现在连接的是其他主机，而实际情况却不一定。 线程安全 String不可变性天生具备线程安全，可以在多个线程中使用。 == 与 equals() 区别 对于基本类型，== 判断两个值是否相等 对于引用类型，== 判断两个引用是否引用同一个对象，而 equals() 判断引用的对象是否等价 八个基本类型：boolean 1 byte 8 char 16 short 16 int 32 float 32 long 64 double 64]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[ANR产生的原因及定位分析]]></title>
       <url>%2F2018%2F03%2F28%2F2%2F</url>
       <content type="text"><![CDATA[ANR（Application Not Responding），程序超过5秒没有响应，主要原因是因为在主线程中做了太多耗时操作。 1，ANR产生的原因 只有当应用程序的 UI 线程响应超时才会引起 ANR，超时产生原因一般有两种： 当前的事件没有机会得到处理，例如UI线程正在响应另一个事件，当前事件由于某种原因被阻塞了 当前的事件正在处理，但是由于耗时太长没能及时完成。 根据 ANR 产生原因不同，超时时间也不同，从本质上讲，产生 ANR 的原因有三种，分别对应到四大组件中的三个（Activity，BroadcastReceiver 和 Service）： KeyDispatchTimeout ：View的按键事件或者触摸事件5秒内无响应 BroadcastTimeout ：BroadcastReceiver 的onReceive()函数运行在主线程中，在10秒内无法完成处理 ServiceTimeout：这种情况比较少，原因是Service的各个生命周期在20秒内无法完成处理 2，典型的 ANR 问题场景 UI 线程存在耗时操作，例如在 UI 线程中进行网络请求，数据库操作或者文件操作等，可能会导致 UI 线程无法及时处理用户的输入等。在Android 4.0以后，如果在 UI 线程中进行网络操作，将会抛出NetworkOnMainThreadException异常 UI 线程等待子线程释放某个锁，从而无法处理用户的输入 耗时的动画需要大量的计算工作，可能导致 CPU 负载过重 3，ANR 的定位与分析 Logcat traces.txt 4，ANR 的避免和检测 StrictMode BlockCanary 4.1，StrictModeStrictMode是 Android SDK 提供的一个用来检测代码中是否存在违规操作的工具类，主要检测两大类问题： 线程策略 ThreadPolicy detectCustomSlowCalls：检测自定义耗时操作 detectDiskReads：检测是否存在磁盘读取操作 detectDiskWrites：检测是否存在磁盘写入操作 detectNetwork：检测是否存在网络操作 虚拟机策略 VmPolicy detectActivityLeaks：检测是否存在Activity泄漏 detectLeakedClosableObjects：检测是否存在未关闭的closable对象泄漏 detectLeakedSqlLiteObjects：检测是否存在Sqlite对象泄漏 setClassInstanceLimit：检测类实例个数是否超过限制 可以看到，其中 ThreadPolicy 可以用来检测可能存在的主线程耗时操作，解决这些检测可以减少 ANR 的概率。用法是在Application或者MainActivity的onCreate方法中执行如下代码 1234567891011121314@Override public void onCreate() &#123; //Debug中使用，release要关闭 if (BuildConfig.DEBUG)&#123; //开启线程模式 StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder() .detectAll().penaltyLog().build()); //开启虚拟机模式 StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder() .detectAll().penaltyLog().build()); &#125; super.onCreate(); &#125; 4.2，BlockCanary基本原理是利用主线程的消息队列处理机制，通过对比消息分发开始和结束的时间点来判断是否超过设定的事件，如果是，则判断为主线程卡顿。具体参考官网]]></content>
