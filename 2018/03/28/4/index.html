@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="fragment, activity," />
 
 
 
@@ -84,13 +84,25 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Rick's blog">
-<meta property="og:url" content="https://rickyin.github.io/404.html">
+<meta name="description" content="activity面试相关的问题
+activity生命周期分析：activity启动 -&amp;gt; onCreate()-&amp;gt;onStart()-&amp;gt;onResume()
+点击home键回到主界面（activity不可见）-&amp;gt;onPause()-&amp;gt;onStop()
+当我们再次回到原activity时-&amp;gt;onRestart()-&amp;gt;onStart()-&amp;gt;onResum">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android基础相关">
+<meta property="og:url" content="https://rickyin.github.io/2018/03/28/4/index.html">
 <meta property="og:site_name" content="Rick's blog">
-<meta property="og:updated_time" content="2017-02-18T07:18:11.000Z">
+<meta property="og:description" content="activity面试相关的问题
+activity生命周期分析：activity启动 -&amp;gt; onCreate()-&amp;gt;onStart()-&amp;gt;onResume()
+点击home键回到主界面（activity不可见）-&amp;gt;onPause()-&amp;gt;onStop()
+当我们再次回到原activity时-&amp;gt;onRestart()-&amp;gt;onStart()-&amp;gt;onResum">
+<meta property="og:updated_time" content="2018-03-28T15:32:29.239Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Rick's blog">
+<meta name="twitter:title" content="Android基础相关">
+<meta name="twitter:description" content="activity面试相关的问题
+activity生命周期分析：activity启动 -&amp;gt; onCreate()-&amp;gt;onStart()-&amp;gt;onResume()
+点击home键回到主界面（activity不可见）-&amp;gt;onPause()-&amp;gt;onStop()
+当我们再次回到原activity时-&amp;gt;onRestart()-&amp;gt;onStart()-&amp;gt;onResum">
 
 
 
@@ -111,15 +123,9 @@
 
 
 
-  <link rel="canonical" href="https://rickyin.github.io/404.html"/>
+  <link rel="canonical" href="https://rickyin.github.io/2018/03/28/4/"/>
 
-  <title>
-  
-
-  
-     | Rick's blog
-  
-</title>
+  <title> Android基础相关 | Rick's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -140,7 +146,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -263,25 +269,152 @@
 
   <div id="posts" class="posts-expand">
     
-    
-      <!DOCTYPE HTML>
-<html>
-<head>
-  <meta http-equiv="content-type" content="text/html;charset=utf-8;">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="robots" content="all">
-  <meta name="robots" content="index,follow">
-</head>
-<body>
 
-<script type="text/plain" src="http://www.qq.com/404/search_children.js" charset="utf-8" homepageurl="/" homepagename="回到我的主页">
-</script>
-<script src="https://qzone.qq.com/gy/404/data.js" charset="utf-8"></script>
-<script src="https://qzone.qq.com/gy/404/page.js" charset="utf-8"></script>
+  
+  
 
-</body>
-</html>
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android基础相关
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-03-28T23:31:11+08:00" content="2018-03-28">
+              2018-03-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="activity面试相关的问题"><a href="#activity面试相关的问题" class="headerlink" title="activity面试相关的问题"></a>activity面试相关的问题</h2><ul>
+<li>activity生命周期分析：<br>activity启动 -&gt; onCreate()-&gt;onStart()-&gt;onResume()</li>
+<li>点击home键回到主界面（activity不可见）-&gt;onPause()-&gt;onStop()</li>
+<li>当我们再次回到原activity时-&gt;onRestart()-&gt;onStart()-&gt;onResume()</li>
+<li>推出当前activity的时候-&gt;onPause()-&gt;onStop()-&gt;onDestroy()<a id="more"></a>
+</li>
+</ul>
+<h2 id="fragment"><a href="#fragment" class="headerlink" title="fragment"></a>fragment</h2><ul>
+<li>FragmentPagerAdapter 与 FragmentStatePagerAdapter的区别：</li>
+</ul>
+<p><strong>答：</strong>当页面比较多的时候，我们选用<code>FragmentStatePagerAdapter</code>，因为在每次切换的时候，<code>FragmentStatePagerAdapter</code>会回收内存，具体看二者的onDestoryItem()方法，<code>FragmentStatePagerAdapter</code>最后调用的是transaction.remove(),而<code>FragmentPagerAdapter</code>调用的则是transaction.detach(),实际就是将fragment的ui与activity的ui分离，并没有回收</p>
+<ul>
+<li>Fragment通信</li>
+</ul>
+<p><strong>答：</strong> 1，在fragment中调用activity的方法，getActivity()<br>2，在activity中调用fragment中的方法，接口回调<br>3，在fragment中调用fragment的方法，findFragmentById()</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/fragment-activity/" rel="tag">#fragment, activity</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/28/3/" rel="next" title="面试相关（一）">
+                <i class="fa fa-chevron-left"></i> 面试相关（一）
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -315,8 +448,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/logo.png"
@@ -386,6 +528,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#activity面试相关的问题"><span class="nav-number">1.</span> <span class="nav-text">activity面试相关的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fragment"><span class="nav-number">2.</span> <span class="nav-text">fragment</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -489,6 +642,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 

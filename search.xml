@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[Android基础相关]]></title>
+      <url>%2F2018%2F03%2F28%2F4%2F</url>
+      <content type="text"><![CDATA[activity面试相关的问题 activity生命周期分析：activity启动 -&gt; onCreate()-&gt;onStart()-&gt;onResume() 点击home键回到主界面（activity不可见）-&gt;onPause()-&gt;onStop() 当我们再次回到原activity时-&gt;onRestart()-&gt;onStart()-&gt;onResume() 推出当前activity的时候-&gt;onPause()-&gt;onStop()-&gt;onDestroy() fragment FragmentPagerAdapter 与 FragmentStatePagerAdapter的区别： 答：当页面比较多的时候，我们选用FragmentStatePagerAdapter，因为在每次切换的时候，FragmentStatePagerAdapter会回收内存，具体看二者的onDestoryItem()方法，FragmentStatePagerAdapter最后调用的是transaction.remove(),而FragmentPagerAdapter调用的则是transaction.detach(),实际就是将fragment的ui与activity的ui分离，并没有回收 Fragment通信 答： 1，在fragment中调用activity的方法，getActivity()2，在activity中调用fragment中的方法，接口回调3，在fragment中调用fragment的方法，findFragmentById()]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[面试相关（一）]]></title>
       <url>%2F2018%2F03%2F28%2F3%2F</url>
       <content type="text"><![CDATA[String,StringBuffer and StringBuilder 1.是否可变 String不可变，StringBuffer和StringBuilder可变。 2.是否线程安全 String不可变，因此是线程安全的。StringBuilder不是线程安全的；StringBuffer是线程安全的，使用synchronized来同步 String不可变的原因 可以缓存hash值 因为String的hash值经常被用到，例如String用作HashMap等。不可变的特性可以使得hash值也不可变，因此只需要一次计算 String Pool的需要 如果String已经被创建过了，那么就会从String Pool中取得引用。只有String是不可变的，才可能使用String Pool。 安全性 String经常作为参数，String的不可变性保证了参数不可变。例如在作为网络连接参数的情况下，如果String是可变的，那么在网络连接过程中，String被改变，改变String对象的那一方以为现在连接的是其他主机，而实际情况却不一定。 线程安全 String不可变性天生具备线程安全，可以在多个线程中使用。 == 与 equals() 区别 对于基本类型，== 判断两个值是否相等 对于引用类型，== 判断两个引用是否引用同一个对象，而 equals() 判断引用的对象是否等价 八个基本类型：boolean 1 byte 8 char 16 short 16 int 32 float 32 long 64 double 64]]></content>
