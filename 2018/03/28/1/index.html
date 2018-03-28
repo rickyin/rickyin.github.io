@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="设计模式," />
 
 
 
@@ -84,16 +84,28 @@
 
 
 
-<meta name="description" content="Android app developer">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="https://rickyin.github.io/about/index.html">
+<meta name="description" content="1，经典的Builder模式经典的Builder模式主要有四个参与者：
+
+Product：被构造的复杂对象，ConcreteBuilder用来创建该对象的内部表示，并定义它的装配过程
+Builder：抽象接口，用来定义创建Product对象的各个组成部件的操作
+ConcreteBuilder：Builder接口的具体实现，可以定义多个，是实际构建Product对象的地方，同时会提供一个返回Prod">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Builder模式详解">
+<meta property="og:url" content="https://rickyin.github.io/2018/03/28/1/index.html">
 <meta property="og:site_name" content="Rick's blog">
-<meta property="og:description" content="Android app developer">
-<meta property="og:updated_time" content="2017-02-16T13:48:45.000Z">
+<meta property="og:description" content="1，经典的Builder模式经典的Builder模式主要有四个参与者：
+
+Product：被构造的复杂对象，ConcreteBuilder用来创建该对象的内部表示，并定义它的装配过程
+Builder：抽象接口，用来定义创建Product对象的各个组成部件的操作
+ConcreteBuilder：Builder接口的具体实现，可以定义多个，是实际构建Product对象的地方，同时会提供一个返回Prod">
+<meta property="og:updated_time" content="2018-03-28T14:34:43.588Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="Android app developer">
+<meta name="twitter:title" content="Builder模式详解">
+<meta name="twitter:description" content="1，经典的Builder模式经典的Builder模式主要有四个参与者：
+
+Product：被构造的复杂对象，ConcreteBuilder用来创建该对象的内部表示，并定义它的装配过程
+Builder：抽象接口，用来定义创建Product对象的各个组成部件的操作
+ConcreteBuilder：Builder接口的具体实现，可以定义多个，是实际构建Product对象的地方，同时会提供一个返回Prod">
 
 
 
@@ -114,15 +126,9 @@
 
 
 
-  <link rel="canonical" href="https://rickyin.github.io/about/"/>
+  <link rel="canonical" href="https://rickyin.github.io/2018/03/28/1/"/>
 
-  <title>
-  
-
-  
-    about | Rick's blog
-  
-</title>
+  <title> Builder模式详解 | Rick's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -143,7 +149,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -266,9 +272,151 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Builder模式详解
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-03-28T22:29:08+08:00" content="2018-03-28">
+              2018-03-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
-    
+      
+
+      
+        <h2 id="1，经典的Builder模式"><a href="#1，经典的Builder模式" class="headerlink" title="1，经典的Builder模式"></a>1，经典的Builder模式</h2><p>经典的Builder模式主要有四个参与者：</p>
+<ul>
+<li><strong>Product</strong>：被构造的复杂对象，ConcreteBuilder用来创建该对象的内部表示，并定义它的装配过程</li>
+<li><strong>Builder</strong>：抽象接口，用来定义创建Product对象的各个组成部件的操作</li>
+<li><strong>ConcreteBuilder</strong>：Builder接口的具体实现，可以定义多个，是实际构建Product对象的地方，同时会提供一个返回Product的接口</li>
+<li><strong>Director</strong>：Builder接口的构造者和使用者</li>
+</ul>
+<a id="more"></a>
+<h2 id="2，改造的Builder模式"><a href="#2，改造的Builder模式" class="headerlink" title="2，改造的Builder模式"></a>2，改造的Builder模式</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> BuilderDemo;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> String name;</div><div class="line">    <span class="keyword">private</span> String gender;</div><div class="line">    <span class="keyword">private</span> String age;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">User</span><span class="params">(UserBuilder builder)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.name = builder.name;</div><div class="line">        <span class="keyword">this</span>.gender = builder.gender;</div><div class="line">        <span class="keyword">this</span>.age = builder.age;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getGender</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> gender;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getAge</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> age;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">UserBuilder</span> </span>&#123;</div><div class="line">        <span class="keyword">private</span> String name;<span class="comment">//必填</span></div><div class="line">        <span class="keyword">private</span> String gender;<span class="comment">//非必填</span></div><div class="line">        <span class="keyword">private</span> String age;<span class="comment">//非必填</span></div><div class="line"></div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="title">UserBuilder</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">            <span class="keyword">this</span>.name = name;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> UserBuilder <span class="title">gender</span><span class="params">(String gender)</span> </span>&#123;</div><div class="line">            <span class="keyword">this</span>.gender = gender;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> UserBuilder <span class="title">age</span><span class="params">(String age)</span> </span>&#123;</div><div class="line">            <span class="keyword">this</span>.age = age;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> User <span class="title">build</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> User(<span class="keyword">this</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"User&#123;"</span> +</div><div class="line">                <span class="string">"name='"</span> + name + <span class="string">'\''</span> +</div><div class="line">                <span class="string">", gender='"</span> + gender + <span class="string">'\''</span> +</div><div class="line">                <span class="string">", age='"</span> + age + <span class="string">'\''</span> +</div><div class="line">                <span class="string">'&#125;'</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        User user = <span class="keyword">new</span> User.UserBuilder(<span class="string">"lily"</span>)</div><div class="line">                .age(<span class="string">"18"</span>)</div><div class="line">                .gender(<span class="string">"female"</span>)</div><div class="line">                .build();</div><div class="line">        System.out.println(user.toString());</div><div class="line">        System.out.println(user.getAge());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/设计模式/" rel="tag">#设计模式</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/21/a03/" rel="next" title="策略模式">
+                <i class="fa fa-chevron-left"></i> 策略模式
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/28/2/" rel="prev" title="ANR产生的原因及定位分析">
+                ANR产生的原因及定位分析 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -302,8 +450,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/logo.png"
@@ -373,6 +530,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1，经典的Builder模式"><span class="nav-number">1.</span> <span class="nav-text">1，经典的Builder模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2，改造的Builder模式"><span class="nav-number">2.</span> <span class="nav-text">2，改造的Builder模式</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -476,6 +644,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 

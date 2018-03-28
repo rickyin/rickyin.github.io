@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="ANR," />
 
 
 
@@ -84,16 +84,31 @@
 
 
 
-<meta name="description" content="Android app developer">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="https://rickyin.github.io/about/index.html">
+<meta name="description" content="ANR（Application Not Responding），程序超过5秒没有响应，主要原因是因为在主线程中做了太多耗时操作。
+
+1，ANR产生的原因 只有当应用程序的 UI 线程响应超时才会引起 ANR，超时产生原因一般有两种：
+
+当前的事件没有机会得到处理，例如UI线程正在响应另一个事件，当前事件由于某种原因被阻塞了
+当前的事件正在处理，但是由于耗时太长没能及时完成。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ANR产生的原因及定位分析">
+<meta property="og:url" content="https://rickyin.github.io/2018/03/28/2/index.html">
 <meta property="og:site_name" content="Rick's blog">
-<meta property="og:description" content="Android app developer">
-<meta property="og:updated_time" content="2017-02-16T13:48:45.000Z">
+<meta property="og:description" content="ANR（Application Not Responding），程序超过5秒没有响应，主要原因是因为在主线程中做了太多耗时操作。
+
+1，ANR产生的原因 只有当应用程序的 UI 线程响应超时才会引起 ANR，超时产生原因一般有两种：
+
+当前的事件没有机会得到处理，例如UI线程正在响应另一个事件，当前事件由于某种原因被阻塞了
+当前的事件正在处理，但是由于耗时太长没能及时完成。">
+<meta property="og:updated_time" content="2018-03-28T14:35:30.798Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="Android app developer">
+<meta name="twitter:title" content="ANR产生的原因及定位分析">
+<meta name="twitter:description" content="ANR（Application Not Responding），程序超过5秒没有响应，主要原因是因为在主线程中做了太多耗时操作。
+
+1，ANR产生的原因 只有当应用程序的 UI 线程响应超时才会引起 ANR，超时产生原因一般有两种：
+
+当前的事件没有机会得到处理，例如UI线程正在响应另一个事件，当前事件由于某种原因被阻塞了
+当前的事件正在处理，但是由于耗时太长没能及时完成。">
 
 
 
@@ -114,15 +129,9 @@
 
 
 
-  <link rel="canonical" href="https://rickyin.github.io/about/"/>
+  <link rel="canonical" href="https://rickyin.github.io/2018/03/28/2/"/>
 
-  <title>
-  
-
-  
-    about | Rick's blog
-  
-</title>
+  <title> ANR产生的原因及定位分析 | Rick's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -143,7 +152,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -266,9 +275,187 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                ANR产生的原因及定位分析
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-03-28T22:32:15+08:00" content="2018-03-28">
+              2018-03-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
-    
+      
+
+      
+        <blockquote>
+<p>ANR（Application Not Responding），程序超过5秒没有响应，主要原因是因为在主线程中做了太多耗时操作。</p>
+</blockquote>
+<h2 id="1，ANR产生的原因"><a href="#1，ANR产生的原因" class="headerlink" title="1，ANR产生的原因"></a>1，ANR产生的原因</h2><p> 只有当应用程序的 UI 线程响应超时才会引起 ANR，超时产生原因一般有两种：</p>
+<ul>
+<li>当前的事件没有机会得到处理，例如UI线程正在响应另一个事件，当前事件由于某种原因被阻塞了</li>
+<li>当前的事件正在处理，但是由于耗时太长没能及时完成。</li>
+</ul>
+<a id="more"></a>
+<p><em>根据 ANR 产生原因不同，超时时间也不同，从本质上讲，产生 ANR 的原因有三种，分别对应到四大组件中的三个（Activity，BroadcastReceiver 和 Service）：</em></p>
+<ul>
+<li>KeyDispatchTimeout ：View的按键事件或者触摸事件<code>5秒</code>内无响应</li>
+<li>BroadcastTimeout ：<code>BroadcastReceiver</code> 的<code>onReceive()</code>函数运行在主线程中，在<code>10秒</code>内无法完成处理</li>
+<li>ServiceTimeout：这种情况比较少，原因是<code>Service</code>的各个生命周期在<code>20秒</code>内无法完成处理</li>
+</ul>
+<h2 id="2，典型的-ANR-问题场景"><a href="#2，典型的-ANR-问题场景" class="headerlink" title="2，典型的 ANR 问题场景"></a>2，典型的 ANR 问题场景</h2><ul>
+<li>UI 线程存在耗时操作，例如在 UI 线程中进行网络请求，数据库操作或者文件操作等，可能会导致 UI 线程无法及时处理用户的输入等。在Android 4.0以后，如果在 UI 线程中进行网络操作，将会抛出<code>NetworkOnMainThreadException</code>异常</li>
+<li>UI 线程等待子线程释放某个锁，从而无法处理用户的输入</li>
+<li>耗时的动画需要大量的计算工作，可能导致 CPU 负载过重</li>
+</ul>
+<h3 id="3，ANR-的定位与分析"><a href="#3，ANR-的定位与分析" class="headerlink" title="3，ANR 的定位与分析"></a>3，ANR 的定位与分析</h3><ul>
+<li>Logcat</li>
+<li>traces.txt</li>
+</ul>
+<h3 id="4，ANR-的避免和检测"><a href="#4，ANR-的避免和检测" class="headerlink" title="4，ANR 的避免和检测"></a>4，ANR 的避免和检测</h3><ul>
+<li>StrictMode</li>
+<li>BlockCanary</li>
+</ul>
+<h4 id="4-1，StrictMode"><a href="#4-1，StrictMode" class="headerlink" title="4.1，StrictMode"></a>4.1，StrictMode</h4><p><code>StrictMode</code>是 Android SDK 提供的一个用来检测代码中是否存在违规操作的工具类，主要检测两大类问题：</p>
+<ul>
+<li><p>线程策略 ThreadPolicy</p>
+<ul>
+<li>detectCustomSlowCalls：检测自定义耗时操作</li>
+<li>detectDiskReads：检测是否存在磁盘读取操作</li>
+<li>detectDiskWrites：检测是否存在磁盘写入操作</li>
+<li>detectNetwork：检测是否存在网络操作</li>
+</ul>
+</li>
+<li><p>虚拟机策略 VmPolicy</p>
+<ul>
+<li>detectActivityLeaks：检测是否存在Activity泄漏</li>
+<li>detectLeakedClosableObjects：检测是否存在未关闭的closable对象泄漏</li>
+<li>detectLeakedSqlLiteObjects：检测是否存在Sqlite对象泄漏</li>
+<li>setClassInstanceLimit：检测类实例个数是否超过限制</li>
+</ul>
+</li>
+</ul>
+<p>可以看到，其中 ThreadPolicy 可以用来检测可能存在的主线程耗时操作，解决这些检测可以减少 ANR 的概率。用法是在<code>Application</code>或者<code>MainActivity</code>的<code>onCreate</code>方法中执行如下代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">()</span> </span>&#123;</div><div class="line">      <span class="comment">//Debug中使用，release要关闭</span></div><div class="line">      <span class="keyword">if</span> (BuildConfig.DEBUG)&#123;</div><div class="line">          <span class="comment">//开启线程模式</span></div><div class="line">          StrictMode.setThreadPolicy(<span class="keyword">new</span> StrictMode.ThreadPolicy.Builder()</div><div class="line">                  .detectAll().penaltyLog().build());</div><div class="line">          <span class="comment">//开启虚拟机模式</span></div><div class="line">          StrictMode.setVmPolicy(<span class="keyword">new</span> StrictMode.VmPolicy.Builder()</div><div class="line">                  .detectAll().penaltyLog().build());</div><div class="line">      &#125;</div><div class="line">      </div><div class="line">      <span class="keyword">super</span>.onCreate();</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<h4 id="4-2，BlockCanary"><a href="#4-2，BlockCanary" class="headerlink" title="4.2，BlockCanary"></a>4.2，BlockCanary</h4><p>基本原理是利用主线程的消息队列处理机制，通过对比消息分发开始和结束的时间点来判断是否超过设定的事件，如果是，则判断为主线程卡顿。具体参考<a href="https://github.com/markzhai/AndroidPerformanceMonitor" target="_blank" rel="external">官网</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ANR/" rel="tag">#ANR</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/28/1/" rel="next" title="Builder模式详解">
+                <i class="fa fa-chevron-left"></i> Builder模式详解
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -302,8 +489,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/logo.png"
@@ -373,6 +569,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1，ANR产生的原因"><span class="nav-number">1.</span> <span class="nav-text">1，ANR产生的原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2，典型的-ANR-问题场景"><span class="nav-number">2.</span> <span class="nav-text">2，典型的 ANR 问题场景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3，ANR-的定位与分析"><span class="nav-number">2.1.</span> <span class="nav-text">3，ANR 的定位与分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4，ANR-的避免和检测"><span class="nav-number">2.2.</span> <span class="nav-text">4，ANR 的避免和检测</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1，StrictMode"><span class="nav-number">2.2.1.</span> <span class="nav-text">4.1，StrictMode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2，BlockCanary"><span class="nav-number">2.2.2.</span> <span class="nav-text">4.2，BlockCanary</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -476,6 +683,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 

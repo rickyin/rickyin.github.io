@@ -281,6 +281,249 @@
             
               
                 
+                <a class="post-title-link" href="/2018/03/28/2/" itemprop="url">
+                  ANR产生的原因及定位分析
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-03-28T22:32:15+08:00" content="2018-03-28">
+              2018-03-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>ANR（Application Not Responding），程序超过5秒没有响应，主要原因是因为在主线程中做了太多耗时操作。</p>
+</blockquote>
+<h2 id="1，ANR产生的原因"><a href="#1，ANR产生的原因" class="headerlink" title="1，ANR产生的原因"></a>1，ANR产生的原因</h2><p> 只有当应用程序的 UI 线程响应超时才会引起 ANR，超时产生原因一般有两种：</p>
+<ul>
+<li>当前的事件没有机会得到处理，例如UI线程正在响应另一个事件，当前事件由于某种原因被阻塞了</li>
+<li>当前的事件正在处理，但是由于耗时太长没能及时完成。</li>
+</ul>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/03/28/2/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/03/28/1/" itemprop="url">
+                  Builder模式详解
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-03-28T22:29:08+08:00" content="2018-03-28">
+              2018-03-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="1，经典的Builder模式"><a href="#1，经典的Builder模式" class="headerlink" title="1，经典的Builder模式"></a>1，经典的Builder模式</h2><p>经典的Builder模式主要有四个参与者：</p>
+<ul>
+<li><strong>Product</strong>：被构造的复杂对象，ConcreteBuilder用来创建该对象的内部表示，并定义它的装配过程</li>
+<li><strong>Builder</strong>：抽象接口，用来定义创建Product对象的各个组成部件的操作</li>
+<li><strong>ConcreteBuilder</strong>：Builder接口的具体实现，可以定义多个，是实际构建Product对象的地方，同时会提供一个返回Product的接口</li>
+<li><strong>Director</strong>：Builder接口的构造者和使用者</li>
+</ul>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/03/28/1/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2018/03/21/a03/" itemprop="url">
                   策略模式
                 </a>
@@ -1231,7 +1474,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1248,7 +1491,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
