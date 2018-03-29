@@ -281,8 +281,8 @@
             
               
                 
-                <a class="post-title-link" href="/2018/03/28/5/" itemprop="url">
-                  test
+                <a class="post-title-link" href="/2018/03/29/lrucache/" itemprop="url">
+                  LRUCache缓存实现原理[转]
                 </a>
               
             
@@ -295,11 +295,30 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-03-28T23:41:29+08:00" content="2018-03-28">
-              2018-03-28
+            <time itemprop="dateCreated" datetime="2018-03-29T22:45:22+08:00" content="2018-03-29">
+              2018-03-29
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
@@ -324,9 +343,14 @@
 
       
         
-          
-            
-          
+          <p>本文转自<a href="https://itimetraveler.github.io/2018/01/12/%E3%80%90Android%E3%80%91%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%20-%20LRUCache%E7%BC%93%E5%AD%98%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/">这里</a></p>
+<h3 id="Android中的缓存策略"><a href="#Android中的缓存策略" class="headerlink" title="Android中的缓存策略"></a>Android中的缓存策略</h3><p>一般来说，缓存策略主要包含缓存的添加、获取和删除这三类操作。如何添加和获取缓存这个比较好理解，那么为什么还要删除缓存呢？这是因为不管是内存缓存还是硬盘缓存，它们的缓存大小都是有限的。当缓存满了之后，再想其添加缓存，这个时候就需要删除一些旧的缓存并添加新的缓存。</p>
+<p>因此 <strong>LRU(Least Recently Used)</strong> 缓存算法便应运而生，LRU 是近期最少使用的算法，它的核心思想是当缓存满时，会优先淘汰那些近期最少使用的缓存对象，有效的避免了 OOM 的出现。在 Android 中采用 LRU 算法的常用缓存有两种：<code>LruCache</code>和<code>DisLruCache</code>，分别用于实现内存缓存和硬盘缓存，其核心思想都是LRU缓存算法。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/03/29/lrucache/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
