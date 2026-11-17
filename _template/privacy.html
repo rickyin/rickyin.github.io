@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  TEMPLATE — 复制本文件到 /<app>-privacy/index.html 后替换占位符。
+  占位符：{{APP_NAME}} {{PACKAGE_ID}} {{EFFECTIVE_DATE}} {{DEV_EMAIL}}
+  可选章节用方括号注释标出，没有对应功能就整节删掉。
+-->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy · {{APP_NAME}}</title>
+<style>
+  :root { --paper:#F4F1E9; --ink:#191817; --ink2:#5D5951; --ink3:#8F8A7E; --rule:#E4DFD3; --seal:#B23A2B; }
+  * { box-sizing:border-box; }
+  body {
+    margin:0; background:var(--paper); color:var(--ink);
+    font:16px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  main { max-width:720px; margin:0 auto; padding:56px 24px 96px; }
+  header { border-bottom:2px solid var(--ink); padding-bottom:20px; margin-bottom:36px; }
+  .seal {
+    display:inline-flex; align-items:center; justify-content:center;
+    width:44px; height:44px; border-radius:10px; background:var(--seal);
+    color:#fff; font-size:26px; line-height:1; margin-bottom:18px;
+    font-family:"Songti SC", "Noto Serif", serif;
+  }
+  h1 { font-size:30px; line-height:1.2; margin:0 0 8px; letter-spacing:-0.01em; }
+  .meta { color:var(--ink3); font-size:13px; letter-spacing:.04em; text-transform:uppercase; }
+  h2 { font-size:17px; margin:36px 0 10px; }
+  p, li { color:var(--ink2); }
+  strong { color:var(--ink); }
+  ul { padding-left:20px; }
+  li { margin:6px 0; }
+  a { color:var(--seal); }
+  .note {
+    margin:28px 0; padding:16px 18px; border-left:3px solid var(--seal);
+    background:#fff; color:var(--ink2); font-size:14px;
+  }
+  footer { margin-top:56px; padding-top:20px; border-top:1px solid var(--rule); color:var(--ink3); font-size:13px; }
+</style>
+</head>
+<body>
+<main>
+
+  <header>
+    <div class="seal">印</div>
+    <h1>Privacy Policy</h1>
+    <div class="meta">{{APP_NAME}} · Effective {{EFFECTIVE_DATE}}</div>
+  </header>
+
+  <p>
+    {{APP_NAME}} is a {{BRIEF_ONE_LINE_DESCRIPTION}}. This policy explains what the app
+    stores, what it does not, and what third-party services it uses.
+  </p>
+
+  <h2>1. What stays on your device</h2>
+  <p>
+    {{LIST_WHAT_IS_STORED_LOCALLY}}. This data never leaves your device unless you
+    export it yourself. The app has no account system and no server. Uninstalling the
+    app removes it.
+  </p>
+
+  <h2>2. What we do not collect</h2>
+  <ul>
+    <li>No account, name, email address or phone number.</li>
+    <li>No upload or cloud sync of your data.</li>
+    <li>No access to your photos, contacts, files, microphone or precise location.</li>
+  </ul>
+
+  <!-- 有广告才保留 -->
+  <h2>3. Advertising</h2>
+  <p>
+    The free version shows ads supplied by <strong>Google AdMob</strong> in
+    {{AD_FORMATS}}. To serve and measure those ads, the Google Mobile Ads SDK may
+    collect a device identifier (such as the advertising ID), approximate location
+    derived from your IP address, and ad interaction data. This information is shared
+    with Google and its advertising partners and is used for advertising, analytics and
+    fraud prevention. It is not linked to your in-app data, because we never send that
+    anywhere. See Google's practices at
+    <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">policies.google.com/technologies/partner-sites</a>.
+  </p>
+
+  <!-- 有内购才保留 -->
+  <h2>4. Purchases</h2>
+  <p>
+    In-app purchases are processed entirely by <strong>Google Play</strong>. We receive
+    only the confirmation that a purchase was completed — never your card details,
+    billing address or Google account information.
+  </p>
+
+  <!-- 有外链才保留 -->
+  <h2>5. Links to other sites</h2>
+  <p>
+    The app contains an optional link to {{THIRD_PARTY_SITE}}. Tapping it opens your
+    browser and you leave the app; whatever you do on that site is covered by its own
+    privacy policy, not this one.
+  </p>
+
+  <h2>6. Children</h2>
+  <p>
+    {{APP_NAME}} is not directed at children under 13. We do not knowingly collect any
+    personal information from children.
+  </p>
+
+  <h2>7. Deleting your data</h2>
+  <p>
+    Uninstall the app to erase everything on the device. For any request about
+    advertising data collected by Google, write to the address below and we will help
+    you direct it to Google.
+  </p>
+
+  <h2>8. Changes</h2>
+  <p>
+    If this policy changes, the effective date above is updated and the new version is
+    published at this URL before the change takes effect.
+  </p>
+
+  <h2>9. Contact</h2>
+  <p><strong>{{DEV_EMAIL}}</strong></p>
+
+  <div class="note">
+    This app stores data locally and has no servers. The only third parties involved are
+    Google AdMob (advertising) and Google Play (payments).
+  </div>
+
+  <footer>
+    {{APP_NAME}} · {{PACKAGE_ID}} · This page is the privacy policy referenced by the
+    app's Google Play listing.
+  </footer>
+
+</main>
+</body>
+</html>
